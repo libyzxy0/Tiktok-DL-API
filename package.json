@@ -1,18 +1,22 @@
 {
-  "name": "nodejs",
+  "name": "tiktokdl",
   "version": "1.0.0",
   "description": "A simple tiktok video downloader api.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
-  "keywords": ["api", "tiktokdl"],
+  "keywords": [
+    "api",
+    "tiktokdl"
+  ],
   "author": "libyzxy0",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^18.0.6",
     "express": "^4.18.2",
     "node-fetch": "^3.2.6",
+    "nodemon": "^2.0.20",
     "request": "^2.88.2"
   }
 }
