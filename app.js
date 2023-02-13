@@ -8,19 +8,19 @@ app.get('/', (req, res) => {
   	res.json({ msg: "Asan url mo bobo ka!" });
   } else {
   	const getVideoID = (url, cb) => {
-  	    request({ url: url, followRedirect: false }, function (err, res, body) {
+  	    request({ url: url, followRedirect: false }, (err, res, body) => {
   	       let url = res.headers.location;
-             let data = url.split("/")
-             data.shift()
-             data.shift()
-             data.shift()
-             data.shift()
-             data.shift()
-             cb(data)
+               let data = url.split("/")
+               data.shift()
+               data.shift()
+               data.shift()
+               data.shift()
+               data.shift()
+               cb(data)
            });
         }
       getVideoID(req.query.url, (data) => {
-      	const m = data[0];
+      	  const m = data[0];
           var id = m.substring(0, 19);
           let url = `https://www.tikwm.com/video/media/hdplay/${id}.mp4`;
           res.json({ link: url });
