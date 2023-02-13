@@ -16,12 +16,11 @@ app.get('/', (req, res) => {
                data.shift()
                data.shift()
                data.shift()
-               cb(data)
+               let id = data[0].substring(0, 19);
+               cb(id)
            });
         }
-      getVideoID(req.query.url, (data) => {
-      	  const m = data[0];
-          var id = m.substring(0, 19);
+      getVideoID(req.query.url, (id) => {
           let url = `https://www.tikwm.com/video/media/hdplay/${id}.mp4`;
           res.json({ link: url });
       })
