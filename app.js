@@ -16,8 +16,7 @@ app.get('/', (req, res) => {
                data.shift()
                data.shift()
                data.shift()
-               let id = data[0].substring(0, 19);
-               cb(id)
+               cb(data[0].substring(0, 19))
            });
         }
       getVideoID(req.query.url, (id) => {
