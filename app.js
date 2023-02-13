@@ -1,3 +1,5 @@
+//Note : this type of url 'https://vt.tiktok.com/ZS8P3wFXX' only works, we fix it soon!
+
 const express = require("express");
 const app = express() 
 const request = require('request');
