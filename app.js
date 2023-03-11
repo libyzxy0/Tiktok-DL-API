@@ -6,11 +6,12 @@ const request = require('request');
 
 
 app.get('/', (req, res) => {
-  if(!req.query.url) {
-  	res.json({ msg: "Asan url mo bobo ka!" });
+  const url = req.query.url;
+  if(!url) {
+  	res.json({ msg: "please enter a valid url!" });
   } else {
-  	const getVideoID = (url, cb) => {
-  	    request({ url: url, followRedirect: false }, (err, res, body) => {
+  	const getVideoID = (link, cb) => {
+  	    request({ url: link, followRedirect: false }, (err, res, body) => {
   	       let url = res.headers.location;
                let data = url.split("/")
                data.shift()
@@ -21,11 +22,15 @@ app.get('/', (req, res) => {
                cb(data[0].substring(0, 19))
            });
         }
-      getVideoID(req.query.url, (id) => {
-          let url = `https://www.tikwm.com/video/media/hdplay/${id}.mp4`;
-          res.json({ link: url });
-      })
+        if (!url.startsWith('https://vt.tiktok.com/') {
+        	res.json({ msg: "please enter a valid url!" });
+        } else {
+        	getVideoID(url, (id) => {
+               let link = `https://www.tikwm.com/video/media/hdplay/${id}.mp4`;
+               res.json({ link: url });
+            })
+        }
    }
 })
 
-app.listen(3000,() => console.log("Listening..."))
+app.listen(3000, () => console.log("Listening..."))
