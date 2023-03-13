@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
                cb(data[0].substring(0, 19))
            });
         }
-        if (!url.startsWith('https://vt.tiktok.com/') {
+        if (!url.startsWith('https://vt.tiktok.com/')) {
         	res.json({ msg: "please enter a valid url!" });
         } else {
         	getVideoID(url, (id) => {
